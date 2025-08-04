@@ -1,74 +1,140 @@
-<<<<<<< HEAD
-# Getting Started with Create React App
+# 🛒 ShopSageRedux – Add-to-Cart E-commerce App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern, frontend‑only e‑commerce demo built with **React** and **Redux Toolkit**, focused on demonstrating robust global cart state management. Features dynamic cart updates, total calculations, and scalable architecture—ideal for showcasing frontend engineering skills.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
 
-### `npm start`
+## 🚀 Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+| Feature                          | Description                                     |
+|----------------------------------|-------------------------------------------------|
+| Add to Cart                      | Users can add products to the cart             |
+| Remove from Cart                 | Easily remove individual items                 |
+| Quantity Update                  | Increment or set exact quantity per product    |
+| Cart Totals                      | Live total price and quantity calculation      |
+| Redux Toolkit Integration        | Scalable global state management               |
+| React Router                     | Seamless navigation between pages              |
+| Modular Components               | Reusable UI components for scalability         |
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 🛠️ Technology Stack / Libraries Used
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+| Layer            | Tools / Libraries                        |
+|------------------|-------------------------------------------|
+| **Frontend**      | React, React Router DOM                  |
+| **State Management** | Redux Toolkit, React-Redux            |
+| **Mock Data**     | Static data from local JavaScript file   |
+| **Styling**       | Plain CSS                                |
+| **Build Tool**    | Create React App                         |
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 📂 Project Structure
+```
+ShopSageRedux-App/
+├── public/
+│ ├── index.html
+│ ├── favicon.ico, logos, manifest.json, robots.txt
+└── src/
+  ├── components/
+  │ ├── Card/
+  │ ├── HorizontalCard/
+  │ └── NavBar/
+  ├── data/
+  │ └── product.js          # Mock product data
+  ├── pages/
+  │ ├── Cart/
+  │ └── Home/
+  ├── store/
+  │ ├── cartSlice.js        # Redux cart slice logic
+  │ └── index.js            # Redux store configuration
+  ├── App.js                # Root component with routes
+  ├── index.js, index.css
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🔧 Setup and Installation
 
-### `npm run eject`
+1. Clone the repo  
+    ```bash
+    git clone https://github.com/Akshat-Gupta-2005/ShopSageRedux-App.git
+    cd ShopSageRedux-App
+    ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2. Install dependencies
+    ```bash
+    npm install
+    ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3. Start the development server
+    ```bash
+    npm start
+    ```
+   
+## 🧠 Redux Design Pattern
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+The cart logic is implemented using **Redux Toolkit**, where state updates are handled through pure reducers in `cartSlice.js`. All totals and quantities are auto-recalculated after each action.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+### 🧾 State Structure
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+| Property         | Type   | Description                                      |
+|------------------|--------|--------------------------------------------------|
+| `items`          | Array  | List of products added to cart                   |
+| `totalQuantity`  | Number | Total number of product units in the cart        |
+| `totalAmount`    | Number | Total cart value (sum of all item totals)        |
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Each cart item has the following structure:
 
-### Code Splitting
+| Item Property   | Type     | Description                         |
+|-----------------|----------|-------------------------------------|
+| `id`            | String   | Unique identifier for the product   |
+| `title`         | String   | Product name                        |
+| `price`         | Number   | Price of one unit                   |
+| `quantity`      | Number   | Number of units in the cart         |
+| `totalPrice`    | Number   | `price × quantity`                  |
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
+### 🔁 Reducers / Actions
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+| Action                            | Description                                                                  |
+|-----------------------------------|------------------------------------------------------------------------------|
+| `addToCart(product)`              | Adds a product or increments quantity if it already exists                   |
+| `removeFromCart(id)`              | Completely removes a product from the cart                                   |
+| `updateQuantity({ id, quantity })`| Sets the quantity for a specific product                                     |
+| `clearCart()`                     | Empties the entire cart and resets all state fields                          |
 
-### Making a Progressive Web App
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### 🔄 Auto Calculations
 
-### Advanced Configuration
+| Field           | Description                                              |
+|------------------|----------------------------------------------------------|
+| `totalPrice`     | Calculated as `price × quantity` for each item           |
+| `totalAmount`    | Sum of all item `totalPrice` values                      |
+| `totalQuantity`  | Total number of units from all items in the cart         |
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+> All values are updated live inside reducers using `.reduce()` and `.toFixed(2)` for precision.
 
-### Deployment
+## 📈 Why This Project Is Good for a Portfolio
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- Demonstrates use of **Redux Toolkit** to manage complex application state
+- Showcases **component-based architecture** and separation of concerns
+- Includes live **cart computation logic**, useful for real-world shopping cart implementations
+- Clean, scalable file structure with reusable logic and styling
+- Easily extendable into a full-stack MERN app
+- Ideal for explaining React + Redux patterns in interviews
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-=======
-# ShopSageRedux
->>>>>>> 1bcd1754c4e0b3cb49eef6bb05c9623e800e06f1
+## 📝 Concepts Learned:
+- React Routing
+- Redux Toolkit (slice, store, dispatch, selectors)
+- Component Modularity
+- UI-State Synchronization
+- Data Mocking 
+
