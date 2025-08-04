@@ -1,0 +1,214 @@
+/* HorizontalCard.css */
+.horizontal-card {
+  display: flex;
+  align-items: center;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  gap: 16px;
+  transition: box-shadow 0.2s ease;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  border: 1px solid #f3f4f6;
+}
+
+.horizontal-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+}
+
+.horizontal-card-image-container {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.horizontal-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+.horizontal-card-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1;
+  gap: 16px;
+}
+
+.horizontal-card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.horizontal-card-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.horizontal-card-price {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #0891b2;
+  margin: 0;
+}
+
+.horizontal-card-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #f9fafb;
+  border-radius: 8px;
+  padding: 4px;
+}
+
+.quantity-btn {
+  width: 32px;
+  height: 32px;
+  border: none;
+  background-color: #e5e7eb;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #374151;
+}
+
+.quantity-btn:hover:not(:disabled) {
+  background-color: #d1d5db;
+  transform: scale(1.05);
+}
+
+.quantity-btn:active:not(:disabled) {
+  transform: scale(0.95);
+}
+
+.quantity-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.quantity-btn i {
+  font-size: 16px;
+}
+
+.quantity-display {
+  min-width: 32px;
+  text-align: center;
+  font-weight: 600;
+  color: #1f2937;
+  font-size: 0.875rem;
+}
+
+.remove-btn {
+  width: 36px;
+  height: 36px;
+  border: none;
+  background-color: #fef2f2;
+  color: #dc2626;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.remove-btn:hover {
+  background-color: #fecaca;
+  transform: scale(1.05);
+}
+
+.remove-btn:active {
+  transform: scale(0.95);
+}
+
+.remove-btn i {
+  font-size: 18px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .horizontal-card {
+    padding: 12px;
+    gap: 12px;
+  }
+  
+  .horizontal-card-image-container {
+    width: 60px;
+    height: 60px;
+    padding: 6px;
+  }
+  
+  .horizontal-card-content {
+    gap: 12px;
+  }
+  
+  .horizontal-card-title {
+    font-size: 0.875rem;
+  }
+  
+  .horizontal-card-price {
+    font-size: 1rem;
+  }
+  
+  .quantity-btn {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .quantity-btn i {
+    font-size: 14px;
+  }
+  
+  .remove-btn {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .remove-btn i {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .horizontal-card {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+  
+  .horizontal-card-content {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .horizontal-card-info {
+    text-align: center;
+  }
+  
+  .horizontal-card-controls {
+    justify-content: center;
+  }
+}
